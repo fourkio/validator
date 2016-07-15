@@ -20,15 +20,14 @@ defmodule Validator.Mixfile do
   end
 
   defp deps do
-    []
+    [{:ecto, "~> 2.0"}]
   end
 
   defp description do
     """
-    A set of validators to confirm that a value conforms to a specific format.
-    Heavily inspired by https://github.com/chriso/validator.js
+    A set of changeset validators to confirm that a changeset value is the proper format.
 
-    Currently, only supporting UUIDs.
+    Heavily inspired by https://github.com/chriso/validator.js
     """
   end
 
