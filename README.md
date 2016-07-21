@@ -22,4 +22,14 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
     end
     ```
 
-
+## Usage
+```
+  def changeset(struct, params \\ %{}) do
+    struct
+    |> cast(params, [:api_id, :collection_id, :user_id])
+    |> validate_required([:api_id, :collection_id, :user_id])
+    |> Validator.validate_uuid(:api_id)
+    |> Validator.validate_uuid(:collection_id)
+    |> Validator.validate_uuid(:user_id)
+  end
+```
