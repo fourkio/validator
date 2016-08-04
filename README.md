@@ -1,5 +1,7 @@
 # validator
 
+[![Build Status](https://semaphoreci.com/api/v1/fourkio/validator/branches/master/badge.svg)](https://semaphoreci.com/fourkio/validator)
+
 This is aims to be an elixir clone of the [NPM Validator](https://github.com/chriso/validator.js) package.
 
 Currently, only UUIDs and URLs are supported.
