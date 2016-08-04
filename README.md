@@ -2,6 +2,8 @@
 
 This is aims to be an elixir clone of the [NPM Validator](https://github.com/chriso/validator.js) package.
 
+Currently, only UUIDs and URLs are supported.
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
@@ -10,7 +12,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 
     ```elixir
     def deps do
-      [{:validator, "~> 0.1.0"}]
+      [{:validator, "~> 0.2.0"}]
     end
     ```
 
@@ -26,10 +28,9 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 ```
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:api_id, :collection_id, :user_id])
-    |> validate_required([:api_id, :collection_id, :user_id])
+    |> cast(params, [:api_id, :some_url])
+    |> validate_required([:api_id, :some_url])
     |> Validator.validate_uuid(:api_id)
-    |> Validator.validate_uuid(:collection_id)
-    |> Validator.validate_uuid(:user_id)
+    |> Validator.validate_url(:some_url)
   end
 ```
