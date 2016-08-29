@@ -9,8 +9,48 @@ defmodule ValidatorTest do
     schema "things" do
       field :uuid
       field :url
+      field :email
     end
   end
+
+  ####  EMAILS
+    test "a valid set of emails" do
+      emails = [
+                "email@example.com",
+                "firstname.lastname@example.com",
+                "email@subdomain.example.com",
+                "firstname+lastname@example.com",
+                "email@123.123.123.123",
+                "firstname-lastname@example.com"
+      ]
+      Enum.each(emails, fn (email) ->
+        params = %{"email" => email}
+        struct = %Thing{}
+        changeset = cast(struct, params, ~w(email))
+        assert Validator.validate_email(changeset, :email).valid?
+      end)
+
+    end
+
+    test "an invalid set of emails" do
+      emails = [
+                "plainaddress",
+                 "#@%^%#$@#$@#.com",
+                 "@example.com",
+                 "Abc..123@example.com",
+                 "email@example@example.com",
+                 ".email@example.com",
+                 "email.@example.com",
+                 "あいうえお@example.com",
+                 "email..email@example.com"
+      ]
+      Enum.each(emails, fn(email) ->
+        params = %{"email" => email}
+        struct = %Thing{}
+        changeset = cast(struct, params, ~w(email))
+        assert Validator.validate_email(changeset, :email).valid? == false
+      end)
+    end
 
   ####  UUIDS
   test "a valid UUID" do
@@ -107,7 +147,6 @@ defmodule ValidatorTest do
       "http://10.1.1.1"
     ]
     Enum.each(urls, fn (url) ->
-      IO.puts url
       params = %{"url" => url}
       struct = %Thing{}
 

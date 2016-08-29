@@ -4,7 +4,7 @@
 
 This is aims to be an elixir clone of the [NPM Validator](https://github.com/chriso/validator.js) package.
 
-Currently, only UUIDs and URLs are supported.
+Currently, only UUIDs, emails and URLs are supported.
 
 ## Installation
 
@@ -17,8 +17,10 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
       [{:validator, "~> 0.2.0"}]
     end
     ```
+  
+  2. Run `mix deps.install`   
 
-  2. Ensure `validator` is started before your application:
+  3. Ensure `validator` is started before your application:
 
     ```elixir
     def application do
