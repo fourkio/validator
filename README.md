@@ -32,9 +32,10 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 ```
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:api_id, :some_url])
+    |> cast(params, [:api_id, :some_url, :some_email])
     |> validate_required([:api_id, :some_url])
     |> Validator.validate_uuid(:api_id)
+    |> Validator.validate_email(:some_email)
     |> Validator.validate_url(:some_url)
   end
 ```
