@@ -17,8 +17,8 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
       [{:validator, "~> 0.2.0"}]
     end
     ```
-  
-  2. Run `mix deps.install`   
+
+  2. Run `mix deps.install`
 
   3. Ensure `validator` is started before your application:
 
