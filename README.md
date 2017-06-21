@@ -1,6 +1,7 @@
 # validator
 
 [![Build Status](https://semaphoreci.com/api/v1/fourkio/validator/branches/master/badge.svg)](https://semaphoreci.com/fourkio/validator)
+[![Hex.pm](https://img.shields.io/hexpm/v/validator.svg)](https://hex.pm/packages/validator)
 
 This is aims to be an elixir clone of the [NPM Validator](https://github.com/chriso/validator.js) package.
 
@@ -8,7 +9,7 @@ Currently, only UUIDs, emails and URLs are supported.
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+This package can be installed as:
 
   1. Add `validator` to your list of dependencies in `mix.exs`:
 
