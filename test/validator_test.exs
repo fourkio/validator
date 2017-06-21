@@ -1,7 +1,6 @@
 defmodule ValidatorTest do
   use ExUnit.Case
   import Ecto.Changeset
-  doctest Validator
 
   defmodule Thing do
     use Ecto.Schema
@@ -97,14 +96,17 @@ defmodule ValidatorTest do
       "http://foo.bar/?q=Test%20URL-encoded%20stuff",
       "http://1337.net",
       "http://a.b-c.de",
-      "http://223.255.255.254"
+      "http://223.255.255.254",
+      "http://➡.ws/䨹",
+      "http://مثال.إختبار",
+      "http://例子.测试"
     ]
     Enum.each(urls, fn (url) ->
       params = %{"url" => url}
       struct = %Thing{}
 
       changeset = cast(struct, params, ~w(url))
-      assert Validator.validate_url(changeset, :url).valid?
+      assert Validator.validate_url(changeset, :url).valid?, "#{url} is not valid"
     end)
   end
 
