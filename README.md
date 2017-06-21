@@ -1,4 +1,4 @@
-# validator
+# Validator
 
 [![Build Status](https://semaphoreci.com/api/v1/fourkio/validator/branches/master/badge.svg)](https://semaphoreci.com/fourkio/validator)
 [![Hex.pm](https://img.shields.io/hexpm/v/validator.svg)](https://hex.pm/packages/validator)

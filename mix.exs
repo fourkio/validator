@@ -2,14 +2,24 @@ defmodule Validator.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :validator,
-     version: "0.3.0",
-     elixir: "~> 1.3",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     description: description(),
-     package: package(),
-     deps: deps()]
+    [
+      app: :validator,
+      version: "0.3.0",
+      elixir: "~> 1.3",
+      build_embedded: Mix.env == :prod,
+      start_permanent: Mix.env == :prod,
+      description: description(),
+      package: package(),
+      deps: deps(),
+      
+      # Docs
+      name: "Validator",
+      source_url: "https://github.com/fourkio/validator",
+      docs: [
+        main: "readme",
+        extras: ["README.md"]
+      ]
+    ]
   end
 
   # Configuration for the OTP application

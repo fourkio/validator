@@ -1,7 +1,6 @@
 defmodule ValidatorTest do
   use ExUnit.Case
   import Ecto.Changeset
-  doctest Validator
 
   defmodule Thing do
     use Ecto.Schema
